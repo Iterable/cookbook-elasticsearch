@@ -22,5 +22,8 @@ ES_JAVA_OPTS="
   -Dcom.sun.management.jmxremote.port=3333
   -Djava.rmi.server.hostname=<%= node[:ipaddress] %>
 <% end %>
+<% if node.elasticsearch[:newrelic] %>
+  -javaagent:$ES_HOME/newrelic/newrelic.jar
+<% end %>
   <%= node.elasticsearch[:env_options] %>
 "
