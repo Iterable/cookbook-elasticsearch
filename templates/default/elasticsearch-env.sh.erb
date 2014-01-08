@@ -16,14 +16,14 @@ ES_JAVA_OPTS="
   -Xmx<%= node.elasticsearch[:allocated_memory] %>
   -Xss<%= node.elasticsearch[:thread_stack_size] %>
   <%= node.elasticsearch[:gc_settings] %>
+<% if node.elasticsearch[:new_relic] %>
+  -javaagent:/$ES_HOME/newrelic/newrelic.jar
+<% end %>
 <% if node.elasticsearch[:jmx] %>
   -Dcom.sun.management.jmxremote.ssl=false
   -Dcom.sun.management.jmxremote.authenticate=false
   -Dcom.sun.management.jmxremote.port=3333
   -Djava.rmi.server.hostname=<%= node[:ipaddress] %>
-<% end %>
-<% if node.elasticsearch[:newrelic] %>
-  -javaagent:$ES_HOME/newrelic/newrelic.jar
 <% end %>
   <%= node.elasticsearch[:env_options] %>
 "
