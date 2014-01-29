@@ -25,5 +25,4 @@ ES_JAVA_OPTS="
   -Dcom.sun.management.jmxremote.port=3333
   -Djava.rmi.server.hostname=<%= node[:ipaddress] %>
 <% end %>
-  <%= node.elasticsearch[:env_options] %>
 "
