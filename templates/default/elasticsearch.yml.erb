@@ -78,6 +78,12 @@
 <%= print_value 'indices.recovery.max_bytes_per_sec' -%>
 <%= print_value 'indices.recovery.concurrent_streams' -%>
 
+############################# THREADS #############################
+
+<%= print_value 'threadpool.index.queue_size' -%>
+<%= print_value 'threadpool.bulk.queue_size' -%>
+<%= print_value 'threadpool.search.queue_size' -%>
+
 ################################## Discovery ##################################
 
 <%= print_value 'discovery.type', node.elasticsearch[:discovery][:type] -%>
@@ -87,7 +93,7 @@
 <%= print_value 'discovery.zen.ping.multicast.enabled' -%>
 <%= print_value 'discovery.zen.ping.unicast.hosts' -%>
 
-<%= print_value 'cluster.routing.allocation.awareness.attributes -%>
+<%= print_value 'cluster.routing.allocation.awareness.attributes' -%>
 
 <%- if node.elasticsearch[:cloud] -%>
 <%= print_value 'cloud.node.auto_attributes' -%>
