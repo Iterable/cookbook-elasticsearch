@@ -16,7 +16,7 @@ ES_JAVA_OPTS="
   -Xmx<%= node.elasticsearch[:allocated_memory] %>
   -Xss<%= node.elasticsearch[:thread_stack_size] %>
   <%= node.elasticsearch[:gc_settings] %>
-<% if node.elasticsearch[:new_relic] %>
+<% if node.elasticsearch[:newrelic] %>
   -javaagent:/$ES_HOME/newrelic/newrelic.jar
 <% end %>
 <% if node.elasticsearch[:jmx] %>
