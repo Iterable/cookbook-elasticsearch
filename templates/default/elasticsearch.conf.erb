@@ -30,3 +30,14 @@ check host elasticsearch_cluster_health with address 0.0.0.0
      }
   group elasticsearch
 <% end %>
+
+check system localhost
+   if memory usage > 85% then alert
+   if cpu usage (user) > 80% for 10 cycles then alert
+   if cpu usage (system) > 80% for 10 cycles then alert
+
+check filesystem rootfs with path /
+   if space usage > 80% then alert
+
+check filesystem esfs with path /usr/local/var/data/elasticsearch/elasticsearch_chef
+   if space usage > 80% then alert
