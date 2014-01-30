@@ -18,6 +18,7 @@ ES_JAVA_OPTS="
   <%= node.elasticsearch[:gc_settings] %>
 <% if node.elasticsearch[:newrelic] %>
   -javaagent:/$ES_HOME/newrelic/newrelic.jar
+  -Dnewrelic.bootstrap_classpath=true
 <% end %>
 <% if node.elasticsearch[:jmx] %>
   -Dcom.sun.management.jmxremote.ssl=false
