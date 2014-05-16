@@ -49,9 +49,8 @@ default.elasticsearch[:allocated_memory] = allocated_memory
 default.elasticsearch[:gc_settings] =<<-CONFIG
   -XX:+UseParNewGC
   -XX:+UseConcMarkSweepGC
-  -XX:CMSInitiatingOccupancyFraction=75
-  -XX:+UseCMSInitiatingOccupancyOnly
   -XX:+HeapDumpOnOutOfMemoryError
+  -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintTenuringDistribution -Xloggc:/usr/local/var/log/elasticsearch/gc.log
 CONFIG
 
 # === LIMITS
