@@ -11,10 +11,13 @@ end
 
 # Install the Fog gem for Chef run
 #
-chef_gem("fog") do
-  version '1.21.0'
-  action :install
-end
+%x( sudo gem install nokogiri -- --use-system-libraries )
+%x( sudo gem install fog -q --no-rdoc --no-ri )
+
+#chef_gem("fog") do
+#  version '1.21.0'
+#  action :install
+#end
 
 # Create EBS for each device with proper configuration
 #
