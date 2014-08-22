@@ -51,7 +51,7 @@ start() {
     fi
 
     echo -en "\033[1mStarting Elasticsearch...\033[0m"
-    touch $PIDFILE && chown <%= node[:elasticsearch][:user] %> $PIDFILE
+    touch $PIDFILE && chown <%= node[:elasticsearch][:user] %>:<%= node[:elasticsearch][:user] %> $PIDFILE
     <% if node.platform_family == 'debian' %>
     ES_INCLUDE=$ES_INCLUDE start-stop-daemon --background --start --quiet --pidfile $PIDFILE --chuid <%= node[:elasticsearch][:user] %> --exec /usr/local/bin/elasticsearch -- -p $PIDFILE
     <% else %>
